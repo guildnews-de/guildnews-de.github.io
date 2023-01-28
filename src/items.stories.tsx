@@ -1,6 +1,7 @@
 import React from 'react';
 import { Item } from '@discretize/gw2-ui-new';
 import itemStatNames from './helper/ItemStatNames';
+import wpsc from './helper/wpsc';
 
 export default {
   title: 'UI-Elements/Items',
@@ -47,6 +48,7 @@ function Template(args) {
     noIcon,
   } = args;
   return (
+    <>
     <div
       data-gw2-embed={embed}
       data-gw2-id={id}
@@ -58,7 +60,10 @@ function Template(args) {
       data-gw2-notext={noText}
       data-gw2-nolink={noLink}
       data-gw2-noicon={noIcon}
-    />
+      />
+    <script id="gw2embeds" defer src="https://unpkg.com/gw2-embeds@latest/dist/gw2-embeds.js"></script>
+    {'Wordpress Shortcode: ' + wpsc(args)}
+    </>
   );
 }
 
@@ -69,11 +74,6 @@ DefaultItem.args = {
   id: 75187,
   stats: 'Berserker',
   upgrades: '86303, 86303',
-  size: false,
-  noTooltip: false,
-  noText: false,
-  noLink: false,
-  noIcon: false,
 };
 
 export const MultipleItems = Template.bind({});

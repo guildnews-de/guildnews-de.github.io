@@ -1,5 +1,6 @@
 import React from 'react';
 import { Aura } from '@discretize/gw2-ui-new';
+import wpsc from './helper/wpsc';
 
 export default {
   title: 'Effects/Aura',
@@ -35,6 +36,7 @@ function Template(args) {
   window.reloadLib();
   const { embed, name, size, noTooltip, noText, noLink, noIcon } = args;
   return (
+    <>
     <div
       data-gw2-embed={embed}
       data-gw2-name={name}
@@ -44,6 +46,9 @@ function Template(args) {
       data-gw2-nolink={noLink}
       data-gw2-noicon={noIcon}
     />
+    <script id="gw2embeds" defer src="https://unpkg.com/gw2-embeds@latest/dist/gw2-embeds.js"></script>
+    {'Wordpress Shortcode: ' + wpsc(args)}
+    </>
   );
 }
 
@@ -52,9 +57,4 @@ export const defaultAura = Template.bind({});
 defaultAura.args = {
   embed: 'aura',
   name: 'Chaos',
-  size: false,
-  noTooltip: false,
-  noText: false,
-  noLink: false,
-  noIcon: false,
 };

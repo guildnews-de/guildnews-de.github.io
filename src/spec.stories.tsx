@@ -1,5 +1,6 @@
 import React from 'react';
 import { Specialization } from '@discretize/gw2-ui-new';
+import wpsc from './helper/wpsc';
 
 export default {
   title: 'Professions/Specialization',
@@ -23,6 +24,7 @@ function Template(args) {
   window.reloadLib();
   const { embed, id, size, noText, noLink, noIcon } = args;
   return (
+    <>
     <div
       data-gw2-embed={embed}
       data-gw2-id={id}
@@ -30,7 +32,10 @@ function Template(args) {
       data-gw2-notext={noText}
       data-gw2-nolink={noLink}
       data-gw2-noicon={noIcon}
-    />
+      />
+    <script id="gw2embeds" defer src="https://unpkg.com/gw2-embeds@latest/dist/gw2-embeds.js"></script>
+    {'Wordpress Shortcode: ' + wpsc(args)}
+    </>
   );
 }
 
@@ -39,8 +44,4 @@ export const DefaultProf = Template.bind({});
 DefaultProf.args = {
   embed: 'spec',
   id: 42,
-  size: false,
-  noText: false,
-  noLink: false,
-  noIcon: false,
 };
