@@ -5,7 +5,7 @@ export default function wpsc(args) {
      let keys = Object.keys(args);
      keys.forEach(key => {
           console.log(args[key])
-          output += ` ${key}=${args[key]}`
+          output += ` ${key}="${args[key]}"`
      });
 
      return `${output} ]`;
